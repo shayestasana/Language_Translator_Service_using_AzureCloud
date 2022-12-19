@@ -1,32 +1,25 @@
-import requests, os, uuid, json
-from dotenv import load_dotenv
-load_dotenv()  # the function will take & load the values from .env.
-
-
-
-
-from flask import Flask, redirect, url_for, request, render_template, session
-app = Flask(__name__)
-
 
 '''
 open new terminal to run
 > python -m flask run
 
->to create the project database, open terminal
-- type python and press enter
-- type 
-    from app import app, db
-    with app.app_context():
-        db.create_all()
-- enter twice to confirm
 
->ctrl+c to stop the flask server
+> ctrl+c to stop the flask server
 '''
 
 
 
 
+import requests, os, uuid, json
+from dotenv import load_dotenv
+from flask import Flask, redirect, url_for, request, render_template, session
+app = Flask(__name__)
+load_dotenv()  # the function will take & load the values from .env.
+
+
+print(os.environ['KEY'])
+print(os.environ['ENDPOINT'])
+print(os.environ['LOCATION'])
 
 @app.route('/', methods=['GET'])
 def index():
@@ -50,7 +43,7 @@ def index_post():
     #    which includes the target language (the source language is automatically detected)
 
     # Indicate that we want to translate and the API version (3.0) and the target language
-    path = '/translate?api-version=3.0'
+    path = 'translate?api-version=3.0'
     # Add the target language parameter
     target_language_parameter = '&to=' + target_language
     # Create the full URL
@@ -82,3 +75,6 @@ def index_post():
         original_text=original_text,
         target_language=target_language
     )
+
+if __name__ == '__main__':
+    app.run(d)

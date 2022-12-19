@@ -25,12 +25,3 @@
     </div>
 </body>
 </html>
-
-<!-- we access original_text, translated_text, and target_language,
-     which we passed as named parameters in 'render_template' by using {{ }}. 
-     This operation tells Flask to render the contents as plain text. 
-     We're also using url_for('index') to create a link back to the default page.
-     While we could, technically, type in the path to the original page, 
-     using 'url_for' tells Flask to read the path for the function with 
-     the name we provide ('index' in this case). 
-     If we rearrange our site, the URL generated for the link will always be valid.-->
